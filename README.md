@@ -3,9 +3,9 @@
 
 Homework assignment 3 from STAT 437 - High Dimensional Learning and Visualization taken from Washington State University's Global Campus during the Spring 2022 semester and was taught by Dr. Xiongzhi Chen.
 
-This assignment's intended purpose was to become familiar with more advanced visualizations (adjusting legends, fongs, orientation, and math expressions) with the `ggplot2` package, visualizing networks as graphs with the `igraphdata` package, and interactive visualizations with the use of the `plotly` package.
+This assignment's intended purpose was to become familiar with K-means clustering with the use of the `cluster` package and hierarchical clustering with the `ggdendro` package and a provided source file `Plotggdendro.r` (which allows for customization of the dendrogram).
 
-I chose to create my own report style submission, rather than use the provided R markdown template to populate with my own code and answers.
+I chose to create my own report style submission, rather than use the provided R markdown template to populate with my own code and answers. I also modified the `Plotggdendro.r` file to use official Washington State University colors.
 </div>
 
 ## Table of Contents
