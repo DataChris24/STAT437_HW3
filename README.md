@@ -27,12 +27,13 @@ Docker compose and supporting files included for the ability to run RStudio with
 
 There are two options to be able to run the attached R markdown code files. Run locally with RStudio or run with the attached Docker container definition.
 
+- **NOTE:** The `devtools` package requires many system packages as dependencies before successful installation. It's purpose is to document all pacakages and their versions and is not required to view and run the main pieces of the project code. The `devtools` package is used in the last code chunk of the `.rmd` file and can be removed, or you can use the Docker container defined in the `docker-compose.yaml` file to run the file with RStudio in a web browser.
+
 ### Running Locally
 
 1. Have R and RStudio installed on your system
 2. Download the `.rmd` file(s) and open with RStudio
 3. Install any packages needed that aren't already installed. 
-- **NOTE:** The `devtools` package requires many system packages as dependencies before successful installation. This package is used in the last code chunk of the `.rmd` file and can be removed, or you can use the Docker container defined in this repository to run the file with RStudio from a web browser.
 
 ### Running With Docker Container
 
@@ -54,8 +55,13 @@ There are two options to be able to run the attached R markdown code files. Run 
    docker compose up
    ```
 
-   *Please note that building this container image can take up to 20 minutes. I have also included a prebuilt container image that I have uploaded to GitHub to speed up the build process. If using this prebuilt container, some modifications to the* `docker-compose.yaml` *file will need to be made*
+   If you have tried to build this container and had any issues, you may need to run the following code to ensure you get a clean rebuild of the container (though you shouldn't have any issues).
 
+   ```
+   docker compose build --no-cache && docker compose up -d --force-recreate
+   ```
+
+   **NOTE:** There will be a `data` folder that is contained in the container build. This data is used for the `STAT437_Project1` repository's code. This folder was built into the container due to the large size of the file and because I built the container to be reused for all the projects done for the STAT 437 course.
 3. When the container `cmimsstat437` has been started, navigate to your web browser of choice and go to<br>
    `http://localhost:8787`
    <br>**OR**<br>
@@ -81,9 +87,7 @@ Also, the PDF and/or HTML output(s) of these R markdown files have also been inc
 
 ## Usage
 
-The purpose of this project is to show my ability to not only use R and the included packages but also my ability to create professional documentation using markdown. The `devtools` package allows for specific siting of packages and their version for reproducable results. 
-
-I have included the Docker container definition files to also show my ability to create and use Docker containers for both development and production ready applications.
+The purpose of this project is to show my ability to not only use R and the included packages but also my ability to create professional documentation using markdown. The `devtools` package allows for specific citing of packages and their version for reproducable results. 
 
 ## Contributing
 
